@@ -1,0 +1,28 @@
+const date = new Date();
+console.log(date.toLocaleString('en-US', {timeZone: 'America/New_York'}));
+console.log(date.toLocaleString('en-GB', {timeZone: 'Europe/London'}));
+console.log(date.toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'}));
+console.log(date.toLocaleString('en-IN'));
+console.log(date.toLocaleString('de-DE'));
+let timestamp = date.getTime();
+console.log(new Date(timestamp));
+console.log(new Date('2024-01-01T12:30:00'));
+console.log(new Date('01/01/2024 12:30:00'));
+console.log(new Date('2024-01-01'));
+console.log(new Date('01/01/2024'));
+
+console.log('Time elapsed since January 1, 1970 UTC 0');
+let seconds = Math.floor(timestamp / 1000);
+let years = Math.floor(seconds / (60 * 60 * 24 * 365.25));
+console.log('Years:', years);
+seconds = seconds % (60 * 60 * 24 * 365.25);
+let days = Math.floor(seconds / (60 * 60 * 24));
+console.log('Days:', days);
+seconds = seconds % (60 * 60 * 24);
+let hours = Math.floor(seconds / (60 * 60));
+console.log('Hours:', hours);
+seconds = seconds % (60 * 60);
+let minutes = Math.floor(seconds / (60));
+console.log('Minutes:', minutes);
+seconds = seconds % (60);
+console.log('Seconds:', seconds);
