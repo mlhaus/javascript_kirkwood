@@ -1,0 +1,27 @@
+const d = new Date(2023, 9, 1, 22, 0, 0);
+const hour = d.getHours();
+
+// Nested If
+if (hour >= 6 && hour < 12) {
+    console.log('Good Morning');
+
+    if (hour === 6) {
+        console.log('Wake Up!');
+    }
+} else if (hour >= 12 && hour < 18) {
+    console.log('Good Afternoon');
+} else {
+    console.log('It\'s dark out');
+
+    if (hour > 22 || hour < 6) {
+        console.log('zzzzzzzz');
+    }
+}
+
+if (hour >= 7 && hour < 15) {
+    console.log('It is work time!');
+}
+
+if (hour === 6 || hour === 22) {
+    console.log('Brush your teeth!');
+}
