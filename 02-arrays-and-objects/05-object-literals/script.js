@@ -2,20 +2,39 @@ const person = {
     'firstName': 'Marc',
     'middleName': 'Leo',
     'lastName': 'Hauschildt',
-    'birth day': '1981-02-06',
+    'birth day': '1981-10-06',
     'pets': ['Zipper', 'Waffles'],
     'address': {
         city: 'Iowa City',
         state: 'Iowa',
         zip: '52245'
     },
+    'age': function () {
+        birthDate = new Date(this['birth day']);
+        otherDate = new Date();
+        let years = (otherDate.getFullYear() - birthDate.getFullYear());
+        if (otherDate.getMonth() < birthDate.getMonth() ||
+            otherDate.getMonth() == birthDate.getMonth() &&
+            otherDate.getDate() < birthDate.getDate()) {
+            years--;
+        }
+        return years;
+    }
 };
 
 console.log(person.firstName);
 console.log(person['lastName']);
 console.log(person['birth day']);
+console.log(person.age());
 console.log(person.pets[0]);
 console.log(person['pets'][0]);
+
+console.log(person);
+const myJson = JSON.stringify(person);
+console.log(myJson);
+const personObj = JSON.parse(myJson);
+console.log(personObj);
+
 
 const json = {
     'results': [
@@ -87,14 +106,41 @@ const json = {
 console.log(json.results[0].phone);
 console.log(json.results[0].picture.large);
 
-const contactName = $('#contact-name'); // document.getElementById('contact-name');
-const contactImg = $('#contact-image'); // document.getElementById('contact-image');
-const contactEmail = $('#contact-email'); //document.getElementById('contact-email');
-// contactName.innerText = `${json.results[0].name.first} ${json.results[0].name.last}`;
-contactName.text(`${json.results[0].name.first} ${json.results[0].name.last}`);
-// contactImg.setAttribute('src', json.results[0].picture.large);
-// contactImg.setAttribute('alt', `${json.results[0].name.first} ${json.results[0].name.last}`);
-contactImg.attr('src', json.results[0].picture.large);
-contactImg.attr('alt', `${json.results[0].name.first} ${json.results[0].name.last}`);
-// contactEmail.innerHTML = `<a href="mailto:${json.results[0].email}?subject=Customer Feedback">Email me</a>`;
-contactEmail.html(`<a href="mailto:${json.results[0].email}?subject=Customer Feedback">Email me</a>`);
+const peopleList = $('#people-list'); // document.getElementById('contact-name');
+// const contactName = $('#contact-name'); // document.getElementById('contact-name');
+// const contactImg = $('#contact-image'); // document.getElementById('contact-image');
+// const contactEmail = $('#contact-email'); //document.getElementById('contact-email');
+
+async function getPeopleData() {
+    let response = await fetch(`https://randomuser.me/api/?seed=kirkwood&nat=us&page=1&results=10`);
+    response = await response.json();
+    const people = response.results;
+    people.forEach(person => {
+        console.log(person);
+
+
+        const contactName = document.createElement('h2');
+        contactName.setAttribute('id', 'contact-name');
+        contactName.innerText = `${person.name.first} ${person.name.last}`;
+
+        const contactImg = document.createElement('img');
+        contactImg.setAttribute('id', 'contact-image');
+        contactImg.setAttribute('src', person.picture.large);
+        contactImg.setAttribute('alt', `${person.name.first} ${json.results[0].name.last}`);
+
+        const contactEmail = document.createElement('p');
+        contactEmail.setAttribute('id', 'contact-email');
+        contactEmail.innerHTML = `<a href="mailto:${person.email}?subject=Customer Feedback">Email me</a>`;
+
+        const contactInfo = document.createElement('div');
+        contactInfo.setAttribute('id', 'contact-info');
+        contactInfo.append(contactName);
+        contactInfo.append(contactImg);
+        contactInfo.append(contactEmail);
+
+        peopleList.append(contactInfo);
+
+    });
+}
+
+window.addEventListener('load', getPeopleData);

@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 body {
@@ -13,7 +15,17 @@ h1 {
     margin-bottom: 15px;
 }
 
+#people-list {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #contact-info {
+    width: 230px;
+    margin: 10px;
     border: 2px solid black;
     padding: 20px;
     display: inline-block;
@@ -36,6 +48,7 @@ h1 {
     margin: 0 auto;
     border-radius: 10px;
 }
+
 #contact-email a {
     color: white;
     text-decoration: none;
