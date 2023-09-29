@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #ddd;
+    min-height: 100vh;
+}
+
+h1, p, form {
+    padding: 5px 0;
+}
+
+input[type="text"] {
+    padding: 5px;
+    width: 50px;
+}
+
+button, input[type="submit"] {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+#play-again-btn {
+    background-color: dodgerblue;
+    display: none;
+}
+
+
+
+
+
+
+
+
+

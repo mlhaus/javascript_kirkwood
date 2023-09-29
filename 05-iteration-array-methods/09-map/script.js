@@ -25,7 +25,10 @@ const companyYearsOpen = companies.map(company => {
 });
 console.log(companyYearsOpen);
 
-const numbersSquaredDiv2 = numbers.map(number => number * number).map(number => number / 2);
+const numbersSquaredDiv2 =
+    numbers
+        .map(number => number * number)
+        .map(number => number / 2);
 console.log(numbersSquaredDiv2);
 
 
