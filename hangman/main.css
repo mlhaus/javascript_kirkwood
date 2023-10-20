@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    background-color: #34495e;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+h1, p {
+    margin: 10px 0 5px;
+}
+
+.container {
+    width: 450px;
+    height: 300px;
+    /*background-color: rgba(0, 0, 0, 0.4);*/
+    margin-bottom: 50px;
+    display: flex;
+    /*justify-content: space-around;*/
+    flex-wrap: wrap;
+}
+
+.gallow {
+    stroke: #fff;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    width: 200px;
+    height: 250px;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+}
+
+.hangman > *, .wrong-letters > *, .word > * {
+    display: none;
+}
+
+.hangman circle {
+    fill: none;
+}
+
+#wrong-letters-container {
+    text-align: right;
+    width: 150px;
+}
+
+#wrong-letters-container p {
+    font-family: monospace;
+    font-size: 15px;
+}
+
+#word {
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    font-size: 22px;
+}
+
+#word .letter {
+    margin: 0 3px;
+    border-bottom: 2px solid #fff;
+}
+
+
+#modal {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-inner {
+    width: 400px;
+    min-height: 200px;
+    background-color: #2980b9;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.modal-inner button {
+    cursor: pointer;
+    background-color: #fff;
+    color: #2980b9;
+    border: 0;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
+    display: inline-block;
+    outline: none;
+}
+
+.modal-inner button:hover {
+    transform: scale(0.98);
+}
+
+.modal-inner button:active {
+    transform: scale(0.96);
+}
+
+#notification {
+    background-color: rgba(250, 162, 0, 0.8);
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 0px;
+    height: 55px;
+    transform: translate(0, 55px);
+}

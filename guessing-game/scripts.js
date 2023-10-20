@@ -7,8 +7,10 @@ const play_again_btn = document.getElementById('play-again-btn');
 let gamePlaying = false;
 let randomNumber = 0;
 let guessCount = 0;
-const minNum = 1;
-const maxNum = 50;
+const minNum = 10;
+const maxNum = 20;
+document.getElementById('min').textContent = minNum;
+document.getElementById('max').textContent = maxNum;
 
 function stopPlay() {
     gamePlaying = false;
@@ -17,7 +19,7 @@ function stopPlay() {
 }
 
 function newRandomNumber() {
-    return Math.floor(Math.random() * 20) + 1;
+    return Math.floor(Math.random() * maxNum) + minNum;
 }
 
 function isANumber(str) {

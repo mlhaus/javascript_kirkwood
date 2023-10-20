@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h1>Hangman</h1>
+<p>Find the hidden - Enter a letter</p>
+<div class="container">
+    <svg class="gallow">
+        <line x1="20" y1="230" x2="100" y2="230"></line>
+        <line x1="60" y1="230" x2="60" y2="20"></line>
+        <line x1="60" y1="20" x2="140" y2="20"></line>
+        <line x1="140" y1="20" x2="140" y2="50"></line>
+
+        <g class="hangman">
+            <circle cx="140" cy="65" r="15"></circle>
+            <line x1="140" y1="80" x2="140" y2="130"></line>
+            <line x1="140" y1="100" x2="110" y2="90"></line>
+            <line x1="140" y1="100" x2="170" y2="90"></line>
+            <line x1="140" y1="130" x2="120" y2="170"></line>
+            <line x1="140" y1="130" x2="160" y2="170"></line>
+        </g>
+    </svg>
+    <div id="wrong-letters-container">
+        <!--        <h3>Wrong letters</h3>-->
+        <!--        <p>a, b, c, d, e, f</p>-->
+    </div>
+    <div id="word">
+        <!--        <span class="letter">t</span>-->
+        <!--        <span class="letter">r</span>-->
+        <!--        <span class="letter">a</span>-->
+        <!--        <span class="letter">n</span>-->
+        <!--        <span class="letter">s</span>-->
+        <!--        <span class="letter">p</span>-->
+        <!--        <span class="letter">o</span>-->
+        <!--        <span class="letter">r</span>-->
+        <!--        <span class="letter">t</span>-->
+        <!--        <span class="letter">a</span>-->
+        <!--        <span class="letter">t</span>-->
+        <!--        <span class="letter">i</span>-->
+        <!--        <span class="letter">o</span>-->
+        <!--        <span class="letter">n</span>-->
+    </div>
+</div>
+<div id="modal">
+    <div class="modal-inner">
+        <h2 id="modal-message">Welcome to<br>Hangman! 🙌</h2>
+        <form id="button-wrapper">
+            <button autofocus type="submit" id="play-btn">Start game</button>
+        </form>
+    </div>
+</div>
+<div id="notification">
+    <p>You already chose letter '<span id="notification-letter">a</span>'</p>
+</div>
+<script src="papaparse.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
