@@ -1,10 +1,16 @@
-let wordsArr;
+let wordsArr = [];
 
 function loadCSVData() {
     Papa.parse('words.csv', {
         download: true,
         header: false,
-        complete: results => wordsArr = results.data[0]
+        complete: results => {
+            // wordsArr = results.data[0]; // use this with comma separated values
+            // do this if the values are line separated
+            results.data.forEach(el => {
+                wordsArr.push(el[0]);
+            });
+        }
     });
 }
 
