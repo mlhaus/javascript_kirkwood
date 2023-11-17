@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Josefin+Sans|Muli" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>City Explorer</h1>
+    <p>Enter a location below to learn about the weather, restaurants, and more!</p>
+</header>
+<main>
+    <form id="search-form">
+        <label for="input-search">Search for a location</label>
+        <input type="text" id="input-search" placeholder="Enter a location here">
+        <button type="submit">Explore!</button>
+    </form>
+    <h2 id="query-placeholder"></h2>
+    <section id="yelp-container">
+        <h3>Results from the Yelp API</h3>
+        <ul id="yelp-results">
+            <li class="restaurant-template restaurant">
+                <p><a href="#" target="_blank" class="name">Name</a></p>
+                <p>Rating: <span class="rating"></span> of 5</p>
+                <p>Cost: <span class="cost"></span> of 4</p>
+                <img src="" alt="Name" class="image">
+            </li>
+        </ul>
+    </section>
+
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

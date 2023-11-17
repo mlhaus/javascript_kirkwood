@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Josefin+Sans|Muli" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>City Explorer</h1>
+    <p>Enter a location below to learn about the weather, restaurants, and more!</p>
+</header>
+<main>
+    <form id="search-form">
+        <label for="input-search">Search for a location</label>
+        <input type="text" id="input-search" placeholder="Enter a location here">
+        <button type="submit">Explore!</button>
+    </form>
+    <h2 id="query-placeholder"></h2>
+    <section id="yelp-container">
+        <h3>Results from the Yelp API</h3>
+        <ul id="yelp-results">
+            <li class="restaurant-template restaurant">
+                <a href="#" class="name">Name</a>
+                <p>The average rating is <span class="rating"></span> out of 5 and the average cost is <span
+                        class="price"></span> out of 4</p>
+                <img class="image" src="" alt="">
+            </li>
+        </ul>
+    </section>
+
+    <section id="current-weather-container">
+        <h3>Current Weather from the OpenWeatherAPI</h3>
+        <ul id="current-weather-results">
+            <li>Description: <span class="description"></span></li>
+            <li>Temperature: <span class="temp"></span>&#176;
+                <br>Feels like: <span class="feels-like-temp"></span>&#176;
+                <br>Today's high: <span class="high-temp"></span>&#176;
+                <br>Today's low: <span class="low-temp"></span>&#176;
+            </li>
+            <li>Wind speed: <span class="wind-speed"></span>
+                Wind direction: <span class="wind-direction"></span></li>
+            <li>Clouds: <span class="cloud-percent"></span>%</li>
+            <li>Sunrise <span class="sunrise"></span> | Sunset <span class="sunset"></span></li>
+        </ul>
+    </section>
+
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
