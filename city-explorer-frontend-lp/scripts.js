@@ -1,4 +1,9 @@
-const api_url = 'http://localhost:3001';
+let api_url = '';
+if (location.protocol !== 'https:') {
+    api_url = 'http://localhost:3001';
+} else {
+    api_url = 'https://city-explorer-lp-b781a56c8734.herokuapp.com';
+}
 $(() => {
     $('#search-form').on('submit', function (event) {
         event.preventDefault();

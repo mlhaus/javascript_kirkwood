@@ -2,6 +2,7 @@ const api_url = 'http://localhost:3000';
 $(() => {
     $('#search-form').on('submit', function (event) {
         event.preventDefault();
+        $('#spinner-outer').css('display', 'flex').hide().fadeIn();
         const userSearch = $('#input-search').val();
 
         const fileName = `${api_url}/location?search=${userSearch}`;
@@ -23,6 +24,7 @@ function getYelp(location) {
     $.get(fileName)
         .then(restaurantData => {
             const arrayOfRestaurants = restaurantData;
+            Restaurant.all = [];
             arrayOfRestaurants.forEach(restaurant => {
                 Restaurant.all.push(new Restaurant(restaurant));
             });
@@ -37,11 +39,12 @@ function getYelp(location) {
 }
 
 function renderRestaurants() {
+    $('#yelp-results').empty();
     Restaurant.all.forEach(restaurant => {
         $('#yelp-results').append(restaurant.render());
     });
-    $('.restaurant-template').remove();
-    $('#yelp-container').show();
+    $('#spinner-outer').delay(2000).fadeOut();
+    $('#yelp-container').delay(1500).fadeIn();
 }
 
 function Restaurant(obj) {
@@ -61,16 +64,19 @@ function Restaurant(obj) {
 Restaurant.all = [];
 
 Restaurant.prototype.render = function () {
-    const $template = $('.restaurant-template').clone();
-    $template.removeClass('restaurant-template');
-    $template.find('.name').text(this.name);
-    $template.find('.name').attr('href', this.url);
-    $template.find('.rating').text(this.rating);
-    $template.find('.cost').text(this.price);
-    $template.find('.image').attr('src', this.image_url);
-    $template.find('.image').attr('alt', this.name);
-    console.log($template);
-    return $template;
+    const template = $('#restaurant-template').html();
+    const renderedTemplate = Mustache.render(template, this);
+    return renderedTemplate;
+    // const $template = $('.restaurant-template').clone();
+    // $template.removeClass('restaurant-template');
+    // $template.find('.name').text(this.name);
+    // $template.find('.name').attr('href', this.url);
+    // $template.find('.rating').text(this.rating);
+    // $template.find('.cost').text(this.price);
+    // $template.find('.image').attr('src', this.image_url);
+    // $template.find('.image').attr('alt', this.name);
+    // console.log($template);
+    // return $template;
 };
 
 
