@@ -1,4 +1,9 @@
-const api_url = 'http://localhost:3000';
+let api_url = '';
+if (location.protocol !== 'https:') {
+    api_url = 'http://localhost:3000';
+} else {
+    api_url = 'https://cityexplorer-prod-6ce8664e1ea0.herokuapp.com';
+}
 $(() => {
     $('#search-form').on('submit', function (event) {
         event.preventDefault();
@@ -6,6 +11,7 @@ $(() => {
         const userSearch = $('#input-search').val();
 
         const fileName = `${api_url}/location?search=${userSearch}`;
+        console.log(fileName);
         const settings = {method: 'GET', dataType: 'json'};
         $.ajax(fileName, settings)
             .then(locationData => {
@@ -13,7 +19,9 @@ $(() => {
             })
             .catch(error => {
                 // Error with my server or with LocationIQ
-                $('#query-placeholder').text('Cannot get restaurant data.');
+                $('#query-placeholder').text('Cannot get data.');
+                $('#spinner-outer').delay(2000).fadeOut();
+                $('#yelp-container').delay(1500).fadeIn();
             });
     });
 });
