@@ -2,7 +2,7 @@ let api_url = '';
 if (location.protocol !== 'https:') {
     api_url = 'http://localhost:3000';
 } else {
-    api_url = 'https://cityexplorer-prod-6ce8664e1ea0.herokuapp.com';
+    api_url = 'https://city-explorer-ggiv67jsl-marc-hauschildts-projects.vercel.app';
 }
 $(() => {
     $('#search-form').on('submit', function (event) {
