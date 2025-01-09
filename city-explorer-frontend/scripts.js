@@ -27,7 +27,7 @@ $(() => {
 });
 
 function getYelp(location) {
-    $('#query-placeholder').html(`You searched for "${location.search}".<br>Showing information for "${location.display_name}"`);
+    $('#query-placeholder').html(`Showing information for "${location.display_name}"`);
     const fileName = `${api_url}/yelp?lat=${location.lat}&lon=${location.lon}`;
     $.get(fileName)
         .then(restaurantData => {
